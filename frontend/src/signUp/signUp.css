@@ -1,0 +1,56 @@
+.signup-container{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.signup-logo{
+    position: relative;
+    margin-left: -41.5%;
+}
+
+.signup-form-1{
+    padding: 9%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.signup-form-1 h3{
+    text-align: center;
+    margin-bottom:12%;
+    color:#fff;
+}
+
+.btnSubmit{
+    font-weight: 600;
+    width: 50%;
+    color: #282726;
+    background-color: #fff;
+    border: none;
+    border-radius: 1.5rem;
+    padding:2%;
+}
+.haveAnAccount{
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    
+}
+
+#signOn {
+    text-decoration: underline;
+    cursor: pointer;
+    color: #6CA6C1;
+    margin-left: 5px;
+}
+
+.btnForgetPwd:hover{
+    text-decoration:none;
+    color:#fff;
+}
+
+#errorForLogIn {
+    margin-bottom: 36px;
+    color:#FF7733;
+}
+
+#errorForSignup {
+    margin-bottom: 16px;
+    color:#FF7733;
+}

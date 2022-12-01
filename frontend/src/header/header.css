@@ -1,0 +1,20 @@
+#header {
+    border-bottom: white 2px solid;
+}
+
+#logoutButton {
+    border-color: #6CA6C1;
+    background-color: #6CA6C1;
+    margin-right: 21px;
+}
+
+#loginButton {
+    border-color: #6CA6C1;
+    background-color: #6CA6C1;
+    margin-right: 21px;
+}
+
+#signupButton {
+    background-color: #FF7733;
+    border-color: #FF7733;
+}
