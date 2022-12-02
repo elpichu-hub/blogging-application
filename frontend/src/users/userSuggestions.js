@@ -5,6 +5,7 @@ import jwtDecode from 'jwt-decode';
 import { useNavigate } from "react-router-dom";
 import { createRoom, setUserReceivingMessage } from './userSlice';
 import { useRef } from 'react';
+import endPoint from '../httpEndPoint';
 
 const UserSuggestions = () => {
 
@@ -54,7 +55,7 @@ const UserSuggestions = () => {
                                 user.username !== jwtDecode(userLoggedIn).username && (
                                     <div className="d-flex text-muted pt-3" key={index} onClick={() => roomCreator(userLoggedInDecoded.current.user_id, user.id)}>
                                         <img className='bd-placeholder-img rounded-circle'
-                                            src={`http://localhost:8001${user.profile_image}`}
+                                            src={`${endPoint.url}/${user.profile_image}`}
                                             height='40' width='40' alt='logo'
                                             style={{ cursor: 'pointer', marginRight: 7 }} />
 

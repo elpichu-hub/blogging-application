@@ -1,6 +1,7 @@
 import './comments.css';
 import CommentsForm from '../commentsForm/commentsForm';
 import { useSelector } from 'react-redux';
+import endPoint from '../httpEndPoint';
 
 
 const Comments = ({ post }) => {
@@ -18,7 +19,7 @@ const Comments = ({ post }) => {
                                 <div className="card shadow-sm mb-2 " id='commentBody'>
                                     <div className="card-body">
                                         <img className='bd-placeholder-img rounded-circle'
-                                            src={`http://localhost:8001${comment.profile_image}`} height='80' width='80' alt='Profile_image'
+                                            src={`${endPoint.url}/${comment.profile_image}`} height='80' width='80' alt='Profile_image'
                                             style={{ cursor: 'pointer' }} />
                                         <p className="card-text">{comment.body}</p>
                                         <div className="d-flex justify-content-between align-items-center">

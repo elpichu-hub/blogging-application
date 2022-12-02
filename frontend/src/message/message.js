@@ -1,3 +1,4 @@
+import endPoint from '../httpEndPoint';
 import './message.css';
 
 // Message Component will render a message passed down
@@ -14,7 +15,7 @@ export const Message = ({ message, userLoggedInID }) => {
                         (
                             <div className="d-flex justify-content-start mb-4">
                                 <div className="img_cont_msg">
-                                    <img src={`http://localhost:8001${message.user_profile}`} className="rounded-circle user_img_msg" />
+                                    <img src={`${endPoint.url}/${message.user_profile}`} className="rounded-circle user_img_msg" />
                                 </div>
                                 <div className="msg_cotainer">
                                     {message && message.message_text}
@@ -29,7 +30,7 @@ export const Message = ({ message, userLoggedInID }) => {
                                     <span className="msg_time-right">{new Date(message.sent_datetime).toLocaleString()}</span>
                                 </div>
                                 <div className="img_cont_msg">
-                                    <img src={`http://localhost:8001${message.user_profile}`} className="rounded-circle user_img_msg" />
+                                    <img src={`${endPoint.url}/${message.user_profile}`} className="rounded-circle user_img_msg" />
                                 </div>
                             </div>
                         )

@@ -5,6 +5,7 @@ import jwt_decode from 'jwt-decode';
 import Comments from '../comments/comments';
 import { setPostToBeCommented } from '../comments/commentsSlice';
 import { getCommentsByPost } from '../comments/commentsSlice';
+import endPoint from '../httpEndPoint';
 
 
 const Post = ({ post }) => {
@@ -46,7 +47,7 @@ const Post = ({ post }) => {
     // getCommentsByPost will get the comments for a specific post. 
     const showCommentsAndReplyFormClickEvent = (post) => {
         const accessToken = `Bearer ${localStorage.getItem('access')}`;
-        const paginatedURL = `http://localhost:8001/getCommentsByPost/${post.id}`
+        const paginatedURL = `${endPoint.url}/getCommentsByPost/${post.id}`
         dispatch(setPostToBeCommented(post));
         dispatch(getCommentsByPost({ paginatedURL, accessToken }));
     };
@@ -57,7 +58,7 @@ const Post = ({ post }) => {
                 <div className="card-body">
 
                     <img className='bd-placeholder-img rounded-circle'
-                        src={`http://localhost:8001${post.profile_image}`} height='80' width='80' alt='Profile_image'
+                        src={`${endPoint.url}${post.profile_image}`} height='80' width='80' alt='Profile_image'
                         style={{ cursor: 'pointer' }} />
 
                     <p className="card-text">{post.content}</p>

@@ -5,6 +5,7 @@ import PostForm from "../postForm/postForm";
 import { useDispatch } from "react-redux";
 import { clearPosts, getPosts } from "../posts/postSlice";
 import { useEffect, useRef } from "react";
+import endPoint from '../httpEndPoint';
 
 
 const Body = () => {
@@ -23,7 +24,7 @@ const Body = () => {
     // relation to the complete set of unpaginated items.
     const onLoad = async () => {
         const accessToken = `Bearer ${localStorage.getItem('access')}`;
-        const paginatedUrl = `http://localhost:8001/getPosts?offset=${offset.current}`;
+        const paginatedUrl = `${endPoint.url}/getPosts?offset=${offset.current}`;
         // eslint-disable-next-line
         const posts = await dispatch(getPosts({ paginatedUrl, accessToken }));
     };

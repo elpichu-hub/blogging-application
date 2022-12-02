@@ -22,7 +22,6 @@ const Profile = () => {
     const { userLoggedInDecoded, userError } = useSelector(state => state.users)
     const { error, profile, emailExists } = useSelector(state => state.profiles)
     const userDecoded = useRef(null)
-    console.log(profile)
 
     // Had to put userDecoded inside a useRef because
     // of error boundary errors. The app would not redirect
