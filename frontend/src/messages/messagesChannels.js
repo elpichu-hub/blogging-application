@@ -46,7 +46,7 @@ export const MessagesChannels = () => {
         // setMessages will set all the messages to show in the ui
         chatSocket.current.onmessage = function (e) {
             const data = JSON.parse(e.data);
-            // data.message.message.map(element => document.querySelector('#chat-log').value += (element.message_text + '\n'))
+            // handle incoming message
             if (data.command === 'new_message') {
                 dispatch(setNewMessage(data['message']))
             } else {
@@ -56,6 +56,16 @@ export const MessagesChannels = () => {
 
         chatSocket.current.onclose = function (e) {
             console.error('Chat socket closed');
+            chatSocket.current = new WebSocket(
+                'ws://'
+                + '127.0.0.1:8001'
+                + '/ws/chat/'
+                + room
+                + '/'
+                + userLoggedInID
+                + '/'
+                + userReceivingMessage
+              );
         };
 
         // everytime useEffect runs this functions
@@ -64,7 +74,6 @@ export const MessagesChannels = () => {
         return () => {
             chatSocket.current.close()
         }
-
     }, []);
 
     // this will get the message typed and chekc if it is > than 0 
