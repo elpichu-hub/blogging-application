@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-(i4vy0_2(fhau&1c5n!!2c5xdd6_su_rn)0^^x(1x7i1woo#@y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['http://localhost:8001', ]
 
 
 # Application definition
@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt.token_blacklist',
     'djoser',
     'channels',
-    'rest_framework.authtoken'
+    'rest_framework.authtoken',
+    'storages',
 
 ]
 
@@ -151,7 +152,6 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:8000',
     'http://localhost:8001',
     'https://blogging-applications.herokuapp.com'
-
 ]
 
 SIMPLE_JWT = {
@@ -218,7 +218,20 @@ DJOSER = {
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'etubrute56@gmail.com'
-EMAIL_HOST_PASSWORD = 'deytbtjxpnyybgff'
+EMAIL_HOST_USER = os.environ['emailForBlogApp']
+EMAIL_HOST_PASSWORD = os.environ['blogAppPassword']
 
 django_heroku.settings(locals())
+
+#AWS
+AWS_ACCESS_KEY_ID = 'AKIASJRUOWHB5IUES3C7'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'blogging-applications'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+AWS_S3_REGION_NAME = 'us-east-2' 
+AWS_S3_SIGNATURE_VERSION = 's3v4'
+
+
+

@@ -11,7 +11,7 @@ export const createPost = createAsyncThunk(
     async (args, { rejectWithValue }) => {
         const { accessToken, postContent } = args;
         try {
-            const response = await fetch(endPoint.url, {
+            const response = await fetch(`${endPoint.url}/createPost`, {
                 method: 'POST',
                 body: JSON.stringify(postContent),
                 headers: {

@@ -12,6 +12,7 @@ const PostForm = () => {
     const createPostOnClickEvent = async () => {
         const postContent = { content: document.getElementById('newPost').value };
         const accessToken = `Bearer ${localStorage.getItem('access')}`;
+        console.log(postContent)
         dispatch(createPost({ postContent, accessToken }));
         document.getElementById('newPost').value = '';
         document.getElementById('newPost').focus();

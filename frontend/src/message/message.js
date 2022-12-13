@@ -1,10 +1,9 @@
-import endPoint from '../httpEndPoint';
 import './message.css';
 
-// Message Component will render a message passed down
-// as a prop also userLoggedInID used to render messages to
-// right or left depenidng on if the message is from
-// userLoggedIn or not. 
+// The Message Component will render a message that is passed down as a prop. 
+// The userLoggedInID prop is used to determine the alignment of the message, 
+// with messages from the logged-in user being displayed on the right and 
+// other messages being displayed on the left.
 export const Message = ({ message, userLoggedInID }) => {
 
     return (
@@ -15,7 +14,7 @@ export const Message = ({ message, userLoggedInID }) => {
                         (
                             <div className="d-flex justify-content-start mb-4">
                                 <div className="img_cont_msg">
-                                    <img src={`${endPoint.url}/${message.user_profile}`} className="rounded-circle user_img_msg" />
+                                    <img src={`${message.user_profile}`} className="rounded-circle user_img_msg" />
                                 </div>
                                 <div className="msg_cotainer">
                                     {message && message.message_text}
@@ -30,7 +29,7 @@ export const Message = ({ message, userLoggedInID }) => {
                                     <span className="msg_time-right">{new Date(message.sent_datetime).toLocaleString()}</span>
                                 </div>
                                 <div className="img_cont_msg">
-                                    <img src={`${endPoint.url}/${message.user_profile}`} className="rounded-circle user_img_msg" />
+                                    <img src={`${message.user_profile}`} className="rounded-circle user_img_msg" />
                                 </div>
                             </div>
                         )

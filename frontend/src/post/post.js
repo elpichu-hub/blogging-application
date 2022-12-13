@@ -58,7 +58,7 @@ const Post = ({ post }) => {
                 <div className="card-body">
 
                     <img className='bd-placeholder-img rounded-circle'
-                        src={`${endPoint.url}${post.profile_image}`} height='80' width='80' alt='Profile_image'
+                        src={`${post.profile_image}`} height='80' width='80' alt='Profile_image'
                         style={{ cursor: 'pointer' }} />
 
                     <p className="card-text">{post.content}</p>
