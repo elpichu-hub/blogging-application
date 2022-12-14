@@ -26,7 +26,7 @@ export const MessagesChannels = () => {
     useEffect(() => {
         chatSocket.current = new WebSocket(
             'ws://'
-            + endPoint.urlForWebSocket
+            + 'blogging-applications.herokuapp.com'
             + '/ws/chat/'
             + room
             + '/'
@@ -58,7 +58,7 @@ export const MessagesChannels = () => {
             console.error('Chat socket closed');
             chatSocket.current = new WebSocket(
                 'ws://'
-                + endPoint.urlForWebSocket
+                + 'blogging-applications.herokuapp.com'
                 + '/ws/chat/'
                 + room
                 + '/'
