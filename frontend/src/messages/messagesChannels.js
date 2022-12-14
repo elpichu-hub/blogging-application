@@ -4,7 +4,7 @@ import { Message } from "../message/message";
 import jwtDecode from "jwt-decode";
 import { useRef } from "react";
 import { setMessages, setNewMessage } from "./messagesSlice";
-
+import endPoint from "../httpEndPoint";
 
 export const MessagesChannels = () => {
 
@@ -26,7 +26,7 @@ export const MessagesChannels = () => {
     useEffect(() => {
         chatSocket.current = new WebSocket(
             'ws://'
-            + '127.0.0.1:8001'
+            + endPoint.url
             + '/ws/chat/'
             + room
             + '/'
@@ -58,7 +58,7 @@ export const MessagesChannels = () => {
             console.error('Chat socket closed');
             chatSocket.current = new WebSocket(
                 'ws://'
-                + '127.0.0.1:8001'
+                + endPoint.url
                 + '/ws/chat/'
                 + room
                 + '/'

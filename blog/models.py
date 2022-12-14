@@ -3,7 +3,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import RegexValidator
 
-# Post Model
 
 
 class Post(models.Model):
@@ -53,12 +52,6 @@ class Comment(models.Model):
 
     def __repr__(self):
         return f'{self.body} {self.id}'
-
-
-from django.db import models
-import datetime
-from django.contrib.auth.models import User
-# Create your models here.
 
 
 class Room(models.Model):
