@@ -20,12 +20,12 @@ export const MessagesChannels = () => {
     const dispatch = useDispatch()
 
     // This useEffect hook will create a new websocket
-    // the websocket will craeet a path using
+    // the websocket will create a path using
     // a room number based on users in the chat IDs:
     // userLoggedInID, userReceivingMessage.
     useEffect(() => {
         chatSocket.current = new WebSocket(
-            'ws://'
+            'ws://' 
             + 'blogging-applications.herokuapp.com'
             + '/ws/chat/'
             + room
@@ -56,16 +56,16 @@ export const MessagesChannels = () => {
 
         chatSocket.current.onclose = function (e) {
             console.error('Chat socket closed');
-            chatSocket.current = new WebSocket(
-                'ws://'
-                + 'blogging-applications.herokuapp.com'
-                + '/ws/chat/'
-                + room
-                + '/'
-                + userLoggedInID
-                + '/'
-                + userReceivingMessage
-              );
+            // chatSocket.current = new WebSocket(
+            //     'ws://'
+            //     + 'blogging-applications.herokuapp.com'
+            //     + '/ws/chat/'
+            //     + room
+            //     + '/'
+            //     + userLoggedInID
+            //     + '/'
+            //     + userReceivingMessage
+            //   );
         };
 
         // everytime useEffect runs this functions
