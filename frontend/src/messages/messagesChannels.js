@@ -25,7 +25,7 @@ export const MessagesChannels = () => {
     // userLoggedInID, userReceivingMessage.
     useEffect(() => {
         chatSocket.current = new WebSocket(
-            'ws://' 
+            'wss://' 
             + 'blogging-applications.herokuapp.com'
             + '/ws/chat/'
             + room
