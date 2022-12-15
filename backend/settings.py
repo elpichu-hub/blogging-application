@@ -207,11 +207,12 @@ ASGI_APPLICATION = 'backend.asgi.application'
 #     },
 # }
 
+# to work with django-channels on heroku 
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [os.environ('REDIS_URL', 'redis://localhost:6379')],
+            "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
         },
     },
 }
