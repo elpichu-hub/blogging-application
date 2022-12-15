@@ -198,11 +198,20 @@ REST_FRAMEWORK = {
 # to work with django-channels
 ASGI_APPLICATION = 'backend.asgi.application'
 
+# CHANNEL_LAYERS = {
+#     'default': {
+#         'BACKEND': 'channels_redis.core.RedisChannelLayer',
+#         'CONFIG': {
+#             "hosts": [('127.0.0.1', 6379)],
+#         },
+#     },
+# }
+
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [('redis://:p03d9aecaaab46f47e5871b6bd8a7f6ac10e111d47c9991124b6dbc21796e19f8@ec2-3-216-87-147.compute-1.amazonaws.com:29939')],
+            "hosts": [os.environ('REDIS_URL', 'redis://localhost:6379')],
         },
     },
 }
