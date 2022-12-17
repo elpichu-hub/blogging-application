@@ -25,8 +25,9 @@ export const MessagesChannels = () => {
     // userLoggedInID, userReceivingMessage.
     useEffect(() => {
         chatSocket.current = new WebSocket(
-            'wss://' 
-            + 'blogging-applications.herokuapp.com'
+            'wss://'
+            // + '127.0.0.1:8001'
+            + 'https://blogging-applications.herokuapp.com'
             + '/ws/chat/'
             + room
             + '/'
@@ -35,9 +36,9 @@ export const MessagesChannels = () => {
             + userReceivingMessage
         )
 
-        // chatSocket.current.onopen = function (e) {
-        //     console.log('opened')
-        // }
+        chatSocket.current.onopen = function (e) {
+            console.log('opened')
+        }
 
         // when the websocket gets a new message from server
         // it will user either user setNewMessage if a command is sent
