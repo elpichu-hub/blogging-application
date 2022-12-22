@@ -27,7 +27,7 @@ export const MessagesChannels = () => {
         chatSocket.current = new WebSocket(
             'wss://'
             // + '127.0.0.1:8001'
-            + 'https://blogging-applications.herokuapp.com'
+            + 'blogging-applications.herokuapp.com'
             + '/ws/chat/'
             + room
             + '/'
