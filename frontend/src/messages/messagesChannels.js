@@ -25,9 +25,9 @@ export const MessagesChannels = () => {
     // userLoggedInID, userReceivingMessage.
     useEffect(() => {
         chatSocket.current = new WebSocket(
-            'wss://'
-            // + '127.0.0.1:8001'
-            + 'blogging-applications.herokuapp.com'
+            'ws://'
+            + '127.0.0.1:8001'
+            // + 'blogging-applications.herokuapp.com'
             + '/ws/chat/'
             + room
             + '/'
@@ -80,19 +80,38 @@ export const MessagesChannels = () => {
     // this will get the message typed and chekc if it is > than 0 
     // in length if so it will sen the message to the server. 
     const sendNewMessage = () => {
-        const newMessage = document.getElementById('messageInput').value;
+        const inputField = document.getElementById('messageInput');
+        const newMessage = inputField.value;
+        
         if (newMessage.length > 0) {
-            chatSocket.current.send(JSON.stringify({ 'message': newMessage }))
-        };
+            if (chatSocket.current.readyState === WebSocket.OPEN) {
+                chatSocket.current.send(JSON.stringify({ 'message': newMessage }));
+                inputField.value = ''; // Clear the input field
+            } else {
+                console.error('WebSocket is not open: ' + chatSocket.current.readyState);
+            }
+        }
     };
 
     // this will make sure to scroll to the buttom of the page everytime you
     // add new text to keep the view in the message input box and more
-    // recent texts.
+    // recent texts. This will also listen for the key 'Enter' to send message
     useEffect(() => {
-        const messageInput = document.getElementById('messageInput')
-        messageInput.scrollIntoView()
+        const messageInput = document.getElementById('messageInput');
+        messageInput.scrollIntoView();
+        messageInput.addEventListener('keypress', handleKeyPress);
+    
+        return () => {
+            messageInput.removeEventListener('keypress', handleKeyPress);
+        }
     }, [messages]);
+    
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            sendNewMessage();
+            event.preventDefault(); // Prevents the addition of a new line in the text area after pressing enter.
+        }
+    };
 
     return (
         <div className="container emp-messages" id='emp-messages'>

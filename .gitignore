@@ -1,0 +1,48 @@
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore database files
+db.sqlite3
+
+# Ignore static files collected during development
+/static/
+/media/
+
+# Ignore local development settings
+local_settings.py
+
+# Ignore environment files
+.env
+
+# Ignore IDE-specific files and directories
+.idea/
+.vscode/
+
+# Ignore pycache folders and compiled files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore secret keys and sensitive information
+*.secret_key
+*.env
+
+# Ignore log files
+*.log
+
+# Ignore backup files
+*~
+
+# Ignore generated documentation
+/build/
+/docs/_build/
+
+# Ignore compiled files for JavaScript and CSS
+*.min.css
+*.min.js
+
+# Ignore virtual environment directory
+venv/
